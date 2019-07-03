@@ -10,14 +10,21 @@ void main() {
 	for (;;) {
 		cout << "Please, enter ambient temperature, C*: " << endl;
 		cin >> Te;
-		if (Te > 110) { cout << "Engine overheating time: " << 0 << endl; }
-		else if (Te <= 20) { cout << "Engine overheating time: " << "inf" << endl; }
-		else {
-			cout << "Engine overheating time: " << simulation->Test(Te, 0.001, 110) << endl << endl;
+		if (Te >= 110) {                                                   //двигатель уже "перегрет"
+			cout << "Engine	overheating time: " << 0 << endl; }
+		else if (Te <= 20) {                                               //охлаждение = нагреванию, расходящийся ряд
+			cout << "Engine overheating time: " << "inf" << endl; }
+		else {                                                             
+			cout << "Engine overheating time: ";
+			cout << simulation->Test(Te, 0.001, 110) << endl;
 		}
+		cout << '/' << endl << '/'<<endl;
+		cin.clear();
+		cin.ignore(10000, '\n');                                           //если введён не верный символ
 		cout << "Continue the simulation?: [y/n] " << endl;
 		cin >> flag;
 		if (flag == 'n') { break; }
+		cout << endl;
 	}
 	system("pause");
 }
