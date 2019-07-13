@@ -21,10 +21,14 @@ void main() {
 		cout << '/' << endl << '/'<<endl;
 		cin.clear();
 		cin.ignore(10000, '\n');                                           //если введён не верный символ
-		cout << "Continue the simulation?: [y/n] " << endl;
-		cin >> flag;
-		if (flag == 'n') { break; }
-		cout << endl;
+		for (;;) {
+			cout << "Continue the simulation?: [y/n] " << endl;
+			cin >> flag;
+			if (flag == 'n') { return; }
+			if (flag == 'y') { break; }
+			cout << endl;
+
+		}
 	}
 	system("pause");
 }
