@@ -6,7 +6,7 @@ class AbstractSimulation                                               //јбстрак
 public:
 	AbstractSimulation();
 	virtual double Test(double Te, double dt, double T)=0;             //метод запуска симул€ции
-	~AbstractSimulation();	
+	virtual ~AbstractSimulation();	
 };
 
 class Simulation: public AbstractSimulation {                          //исходна€ симул€ци€

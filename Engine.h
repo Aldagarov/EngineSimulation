@@ -5,7 +5,7 @@ protected:
 	double T_eng = 0, t = 0;                                                 //Значения температуры и времени работы
 public:
 	AbstractEngine();
-	~AbstractEngine();
+	virtual ~AbstractEngine();
 	virtual double temp(double Te, double dt, int j)=0;                      //расчёт температуры по dt
 };
 
